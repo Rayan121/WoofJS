@@ -1,0 +1,55 @@
+setBackdropURL('./images/outerspace.jpg')
+
+var unicorn = new Image({
+  url: "./docs/images/unicorn.png",
+  width: 120, 
+  height: 80,
+})
+
+
+
+
+var bb8 = new Image({
+  url: "./docs/images/BB8.png",
+  width: 100, 
+  height: 150,
+})
+
+
+bb8.x=200
+bb8.y=150
+
+onKeyDown(() => {
+ if (keysDown.includes('LEFT')) {
+  unicorn.x=unicorn.x-10
+  }
+})
+
+
+onKeyDown(() => {
+ if (keysDown.includes('RIGHT')) {
+   unicorn.x=unicorn.x+10
+  }
+})
+onKeyDown(() => {
+ if (keysDown.includes('UP')) {
+   unicorn.y=unicorn.y+10
+  }
+})
+
+
+
+
+onKeyDown(() => {
+ if (keysDown.includes('DOWN')) {
+   unicorn.y=unicorn.y-10
+  }
+})
+
+
+repeatUntil(() => (bb8.x<=-240), () => {
+every(1,"seconds",()=>{
+      bb8.x=bb8.x-5
+      })
+})
+

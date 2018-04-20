@@ -1,0 +1,54 @@
+setBackdropURL('./images/outerspace.jpg')
+
+
+var catcher = new Rectangle({
+  width: 60,
+  height: 20,
+  color: "pink"
+})
+
+var score = 0
+new Text({
+  text: () => "score: " + score,
+  x: -170,
+  y: 180,
+  size: 30
+})
+var apple = new Circle({
+  radius: 10,
+  color: "green",
+  x: 0,
+  y: 0
+})
+
+apple.y = 290
+apple.x = random(-240, 240)
+
+catcher.y = -200
+catcher.x = 0
+
+var speed = 5
+every(0.1, 'second', () => {
+
+  apple.y = apple.y - speed
+  if (apple.y < -250) {
+    apple.x = random(-240, 240)
+    apple.y = 250
+    speed = speed + 3
+  }
+})
+forever(() => {
+  if (catcher.mouseOver) {
+    catcher.x = mouseX
+
+
+
+  }
+
+  if (catcher.touching(apple)) {
+    apple.x = random(-240, 240)
+    apple.y = 250
+    speed = speed + 3
+    scor = score + 1
+  }
+})

@@ -1,0 +1,58 @@
+setBackdropURL('./images/outerspace.jpg')
+
+var mario=new Image({
+  url:"./docs/images/mario.png",
+  width: 50,
+  height:50,
+
+  
+})
+score=0;
+time=10;
+new Text({
+  text: () => "time =" + time,
+  x: 0,
+  y: 200,
+  size: 30
+})
+new Text({
+  text: () => "score" + score,
+  x: 0,
+  y: 50,
+  size: 20
+})
+
+  every(3, "seconds", () => {
+  time=time-1
+
+})
+
+mario.onMouseDown(()=>{
+       score=score+1;           
+     mario.x=random(-100,100);
+  mario.y=random(-100,100)
+  mario.width=random(50,100);
+  mario.height=random(50,100);
+  
+  
+                  })
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
